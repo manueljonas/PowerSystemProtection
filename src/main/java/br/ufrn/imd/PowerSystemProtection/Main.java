@@ -62,6 +62,10 @@ public class Main {
 		}
 		System.out.println("Overcurrent Protection Element: " + oc.getElementName());
 		System.out.println("Status: Start = " + oc.isStart() + ", Trip = " + oc.isTrip());
+		oc.setMagI(1.0); // Reduzindo a corrente para desativar o start e o trip
+		oc.start();
+		System.out.println("Depois de reduzir a corrente:");
+		System.out.println("Status: Start = " + oc.isStart() + ", Trip = " + oc.isTrip());
 		System.out.println();
 
 		System.out.println("Application Finished");

@@ -23,9 +23,9 @@ public class Overcurrent implements Protection {
 	private String elementTimeCharacteristic;
 	private ElementTimeCharacteristic timeCharacteristic;
 	private String elementName;
+	private double elementTime;
 
 	private double magI;
-	private double elementTime;
 
 	@Override
 	public boolean start() {
@@ -38,8 +38,7 @@ public class Overcurrent implements Protection {
 				start = true;
 				startTime = System.currentTimeMillis();
 				startOnTimeStamp = startTime;
-				System.out.println("Event: " + "substationName" + "/" + "bayName" + "/" + "deviceNameDescription" + " - "
-						+ elementName + " -> " + "Start (" + start + ") - "
+				System.out.println("Event: " + elementName + " -> " + "Start (" + start + ") - "
 						+ convDate.convertTimeMillisToString(startOnTimeStamp));
 			}
 			if (start) {
@@ -65,8 +64,7 @@ public class Overcurrent implements Protection {
 			if (start) {
 				start = false;
 				startOffTimeStamp = System.currentTimeMillis();
-				System.out.println("Event: " + "substationName" + "/" + "bayName" + "/" + "deviceNameDescription" + " - "
-						+ elementName + " -> " + "Start (" + start + ") - "
+				System.out.println("Event: " + elementName + " -> " + "Start (" + start + ") - "
 						+ convDate.convertTimeMillisToString(startOffTimeStamp));
 			}
 			startTime = 0;
@@ -83,16 +81,14 @@ public class Overcurrent implements Protection {
 			if (!trip) {
 				trip = true;
 				tripOnTimeStamp = System.currentTimeMillis();
-				System.out.println("Event: " + "substationName" + "/" + "bayName" + "/" + "deviceNameDescription" + " - "
-						+ elementName + " -> " + "Trip (" + trip + ") - "
+				System.out.println("Event: " + elementName + " -> " + "Trip (" + trip + ") - "
 						+ convDate.convertTimeMillisToString(tripOnTimeStamp));
 			}
 		} else {
 			if (trip) {
 				trip = false;
 				tripOffTimeStamp = System.currentTimeMillis();
-				System.out.println("Event: " + "substationName" + "/" + "bayName" + "/" + "deviceNameDescription" + " - "
-						+ elementName + " -> " + "Trip (" + trip + ") - "
+				System.out.println("Event: " + elementName + " -> " + "Trip (" + trip + ") - "
 						+ convDate.convertTimeMillisToString(tripOffTimeStamp));
 			}
 		}
