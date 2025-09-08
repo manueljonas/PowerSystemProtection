@@ -63,8 +63,7 @@ public class Main {
 		System.out.println("Overcurrent Protection Element: " + oc.getElementName());
 		System.out.println("Status: Start = " + oc.isStart() + ", Trip = " + oc.isTrip());
 		System.out.println();
-		
-		
+
 		System.out.println("Application Finished");
 	}
 
